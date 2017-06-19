@@ -1,0 +1,13 @@
+header {
+  background-image: url(http://mac.h-cdn.co/assets/15/33/980x490/landscape-1439399070-mcx-sophia.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  min-height: 100%;
+  padding-top: 300px;
+}
+
+header h1 {
+  font-size: 70px;
+  color: white;
+}
