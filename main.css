@@ -1,13 +1,44 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
 header {
   background-image: url(http://mac.h-cdn.co/assets/15/33/980x490/landscape-1439399070-mcx-sophia.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
-  min-height: 100%;
-  padding-top: 300px;
+  background-position: 70% 30%;
+  padding: 70px;
 }
 
 header h1 {
-  font-size: 70px;
+  font-size: 100px;
   color: white;
+  overflow: hidden;
+  letter-spacing: 7px;
+}
+
+mark {
+  background-color: pink;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: black;
+  color: white;
+}
+
+#container {
+  padding-top: 40px;
 }
