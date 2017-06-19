@@ -16,10 +16,16 @@ header {
 }
 
 header h1 {
+  background-color: pink;
+  display: inline;
   font-size: 100px;
-  color: white;
+  color: black;
   overflow: hidden;
   letter-spacing: 7px;
+}
+
+h2 {
+  text-transform: lowercase;
 }
 
 mark {
@@ -40,5 +46,5 @@ mark {
 }
 
 #container {
-  padding-top: 40px;
+  padding: 40px;
 }
