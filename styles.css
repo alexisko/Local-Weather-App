@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body,
+html {
+  font-family: 'Raleway', sans-serif;
+  /*font-family: 'Montserrat', sans-serif;*/
+  /*font-family: 'Roboto', sans-serif;*/
+}
+
+button {
+  border: none;
+}
+
+.footer {
+  padding-bottom: 5px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: black;
+}
+
+.container {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.celcius-farenheit {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  z-index: 1;
+}
+
+.neighborhood,
+.city-state {
+  line-height: 5px;
+}
+
+.temp {
+  font-weight: bolder;
+  line-height: 5px;
+  font-size: 30px;
+}
+
+.temp-high,
+.temp-low {
+  font-style: italic;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  padding-right: 5px;
+}
+
+.temp-low {
+  opacity: 0.5;
+  color: red;
+}
+
+.temp-high {
+  opacity: 0.5;
+  color: blue;
+}
+
+.current-time,
+.current-date {
+  letter-spacing: 3px;
+  font-size: 12px;
+  line-height: 5px;
+  opacity: 0.2;
+}
+
+.temp-high-low {
+  display: inline-block;
+}
+
+.temp-high {
+  float: left;
+}
+
+.temp-low {
+  float: right;
+}
