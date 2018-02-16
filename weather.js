@@ -46,37 +46,37 @@ function convertTemp() {
   }
 }
 
-function getCurTime() {
-  var date = new Date();
-  var hours, minutes, amPM;
-  hours = date.getHours();
-  minutes = date.getMinutes();
-  if(hours < 12) {
-    amPM = " AM";
-  } else {
-    amPM = " PM";
-  }
+// function getCurTime() {
+//   var date = new Date();
+//   var hours, minutes, amPM;
+//   hours = date.getHours();
+//   minutes = date.getMinutes();
+//   if(hours < 12) {
+//     amPM = " AM";
+//   } else {
+//     amPM = " PM";
+//   }
 
-  if(hours === 0) {
-    hours = "12";
-  } else if(hours > 12) {
-    hours = (hours - 12);
-  } else if (hours < 10) {
-    hours = "0" + hours;
-  }
+//   if(hours === 0) {
+//     hours = "12";
+//   } else if(hours > 12) {
+//     hours = (hours - 12);
+//   } else if (hours < 10) {
+//     hours = "0" + hours;
+//   }
 
-  if(minutes < 10) { minutes = "0" + minutes; }
+//   if(minutes < 10) { minutes = "0" + minutes; }
 
-  $(".current-time").html(hours + ":" + minutes + amPM);
-}
+//   $(".current-time").html(hours + ":" + minutes + amPM);
+// }
 
-function getDate() {
-  var date = new Date();
-  var months = ['January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'];
+// function getDate() {
+//   var date = new Date();
+//   var months = ['January', 'February', 'March', 'April', 'May', 'June',
+//   'July', 'August', 'September', 'October', 'November', 'December'];
 
-  $(".current-date").html(months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear());
-}
+//   $(".current-date").html(months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear());
+// }
 
 function getLocation() {
   var latitude, longitude, cityState;
@@ -92,7 +92,6 @@ function getLocation() {
     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         if (results[1]) {
-            // console.log("Location: " + results[1].formatted_address);
             for(var i = 0; i < results[0].address_components.length; i++) {
               if(results[0].address_components[i].types[0] === 'locality') { //city
                 cityState = results[0].address_components[i].long_name;
@@ -134,14 +133,14 @@ function getLocation() {
 
 function getWeatherIcon(weatherCode) {
   if(weatherCode < 300) { //Thunderstorm
-    $(".forecast").html('<i class="fa fa-bolt" aria-hidden="true"></i>');
+    $(".forecast").html('<i class="fa fa-bolt"></i>');
   } else if(weatherCode < 600) { //Rain
-    $(".forecast").html('<i class="fa fa-tint" aria-hidden="true"></i>');
+    $(".forecast").html('<i class="fa fa-tint"></i>');
   } else if(weatherCode < 700) { //Snow
-    $(".forecast").html('<i class="fa fa-snowflake-o" aria-hidden="true"></i>');
+    $(".forecast").html('<i class="fa fa-snowflake-o"></i>');
   } else if(weatherCode === 800) { //Clear Sky
-    $(".forecast").html('<i class="fa fa-sun-o" aria-hidden="true"></i>');
+    $(".forecast").html('<i class="fa fa-sun-o"></i>');
   } else if(weatherCode < 900) { //Clouds
-    $(".forecast").html('<i class="fa fa-cloud" aria-hidden="true"></i>');
+    $(".forecast").html('<i class="fa fa-cloud"></i>');
   }
 }
