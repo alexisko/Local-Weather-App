@@ -110,7 +110,7 @@ function getLocation() {
 
     //get weather
     var api = 'c768d4a88b0b5de357d4f616162c72ab';
-    var url = `http://api.openweathermap.org/data/2.5/weather?lat=${parseInt(latitude)}&lon=${parseInt(longitude)}&APPID=${api}&units=metric`;
+    var url = `https://api.openweathermap.org/data/2.5/weather?lat=${parseInt(latitude)}&lon=${parseInt(longitude)}&APPID=${api}&units=metric`;
     $.getJSON(url, function(json) {
       dataFound = true;
       curTemp = parseInt(json.main.temp);
