@@ -1,86 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Lato:100');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
 
-body,
-html {
-  font-family: 'Raleway', sans-serif;
+html,
+body {
+  background-color: lightslategray;
   margin: 0;
 }
 
-a, a:link,
-a:hover, a:visited,
-a:active {
-  text-decoration: none;
-  color: gray;
-}
-
-button {
-  background-color: transparent;
-  font-size: 1rem;
-  border: none;
-}
-
-button:disabled {
-  font-weight: bolder;
-  color: black;
-}
-
-footer {
-  position: absolute;
-  bottom: 1%;
-  color: gray;
-  font-size: 11px;
-  text-transform: uppercase;
+main {
+  background-color: white;
+  border-radius: 1rem;
+  width: 300px;
+  height: 420px;
 }
 
 .container {
-  background: linear-gradient(white, lightgray);
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  height: 100vh;
+  background-color: lightslategray;
 }
 
-.celcius-farenheit {
-  position: absolute;
-  top: 1%;
+.big-text {
+  font-family: 'Roboto', sans-serif;
 }
 
-.neighborhood,
-.city-state {
-  font-size: 20px;
-  line-height: 5px;
+.small-text {
+  font-family: 'Lato', sans-serif;
 }
-
-.temp {
-  font-weight: bolder;
-  line-height: 5px;
-  font-size: 100px;
-}
-
-.temp-high,
-.temp-low {
-  font-size: 20px;
-  font-style: italic;
-  margin-top: 0px;
-  margin-bottom: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.temp-low {
-  color: red;
-  float: right;
-}
-
-.temp-high {
-  color: blue;
-  float: left;
-}
-
-.temp-high-low {
-  display: inline-block;
-}
-
-
