@@ -1,3 +1,5 @@
+var fahrenheitOn = true;
+
 $(document).ready(function() {
   $(window).load(function() {
     init();
@@ -9,8 +11,10 @@ $(document).ready(function() {
     $('.weather--scale').html('&#176;C');
 
     // convert to celcius
-    var toCelcius = (parseInt($('.weather--temp').html()) - 32) / 1.8;
-    $('.weather--temp').html(Math.round(toCelcius));
+    fahrenheitOn = false;
+    convertForecast();
+    var celcius = convertToCelcius($('.weather--temp').html());
+    $('.weather--temp').html(celcius);
   });
 
   $('#fahrenheit').on('click', function() {
@@ -19,8 +23,10 @@ $(document).ready(function() {
     $('.weather--scale').html('&#176;F');
 
     // convert to fahrenheit
-    var toFahrenheit = parseInt($('.weather--temp').html()) * 1.8 + 32;
-    $('.weather--temp').html(Math.round(toFahrenheit));
+    fahrenheitOn = true;
+    convertForecast();
+    var fahrenheit = concertToFahrenheit($('.weather--temp').html());
+    $('.weather--temp').html(fahrenheit);
   });
 
   function init() {
@@ -49,13 +55,68 @@ $(document).ready(function() {
         console.log(weather);
         // display weather
         var currentTemp = parseInt(weather.currently.apparentTemperature);
-        var forecast = weather.currently.summary;
+        var summary = weather.currently.summary;
         var icon = weather.currently.icon;
 
         $('.weather--temp').html(currentTemp);
-        $('.info--forecast').html(forecast);
+        $('.info--summary').html(summary);
         $('.icon').addClass('wi wi-forecast-io-' + icon);
+
+        getForecast(weather.daily.data);
       }
     });
+  }
+
+  function getForecast(daily) {
+    console.log(daily);
+    var date = new Date();
+    var day = date.getDay();
+    for(var i = 0; i < 3; i++) {
+      var weekday = getDay(day),
+      icon = daily[i].icon,
+      low = Math.round(daily[i].temperatureLow),
+      high = Math.round(daily[i].temperatureHigh);
+      day++;
+
+      displayForecast(weekday, icon, low, high, i);
+    }
+  }
+
+  function convertForecast() {
+    for(var i = 0; i < 3; i++) {
+      var low = $('.low-' + i).html(),
+      high = $('.high-' + i).html();
+      if(fahrenheitOn) {
+        $('.low-' + i).html(concertToFahrenheit(low));
+        $('.high-' + i).html(concertToFahrenheit(high));
+      } else {
+        $('.low-' + i).html(convertToCelcius(low));
+        $('.high-' + i).html(convertToCelcius(high));
+      }
+    }
+  }
+
+  function displayForecast(weekday, icon, low, high, num) {
+    var item = '<span class="forecast__item--day">' + weekday + '</span>';
+    item += '<span class="forecast__item--icon wi wi-forecast-io-' + icon + '"></span>';
+    var lowHigh = '<div class="forecast__item--low-high">';
+    lowHigh += '<span class="low-' + num + '">' + low + '</span>';
+    lowHigh += '<span> | </span>';
+    lowHigh += '<span class="high-' + num + '">' + high + '</span>';
+    lowHigh += '</div>';
+    $('.forecast').append('<div class="forecast__item">' + item + lowHigh + '</div>');
+  }
+
+  function getDay(day) {
+    var dayAbbrev = ['SUN','MON','TUES','WED','THURS','FRI','SAT'];
+    return day>6 ? dayAbbrev[day-7] : dayAbbrev[day];
+  }
+
+  function convertToCelcius(temp) {
+    return Math.round((parseInt(temp) - 32) / 1.8);
+  }
+
+  function concertToFahrenheit(temp) {
+    return Math.round(parseInt(temp) * 1.8 + 32);
   }
 });
