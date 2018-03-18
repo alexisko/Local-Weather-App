@@ -1,6 +1,7 @@
 var fahrenheitOn = true;
 
 $(document).ready(function() {
+  $('.container').hide();
   $(window).load(function() {
     init();
   });
@@ -80,6 +81,9 @@ $(document).ready(function() {
 
       displayForecast(weekday, icon, low, high, i);
     }
+
+    $('.loading').hide();
+    $('.container').show();
   }
 
   function convertForecast() {
