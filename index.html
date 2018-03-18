@@ -3,12 +3,28 @@
 <head>
   <title>Alexis Okamura | Free Code Camp - Local Weather App</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
 </head>
 <body>
   <div class="container">
-    <div class="big-text">27</div>
-    <div class="big-text">HONOLULU, HI</div>
-    <div class="small-text">sdkjfsdlfkj</div>
+    <div class="weather-settings">
+      <button id="celcius">C</button>
+      <span>/</span>
+      <button id="fahrenheit" disabled>F</button>
+    </div>
+    <div class="weather-container">
+      <span class="icon"></span>
+      <div class="weather">
+        <span class="weather--temp">40</span>
+        <span class="weather--scale">&#176;F</span>
+      </div>
+      <div class="info">
+         <span class="info--location">HONOLULU</span>
+        <span class="info--divider">/</span>
+        <span class="info--forecast">CLEAR</span>
+      </div>
+      <hr>
+    </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="weather.js"></script>

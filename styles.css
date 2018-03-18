@@ -1,18 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100');
 @import url('https://fonts.googleapis.com/css?family=Raleway:300');
-@import url('https://fonts.googleapis.com/css?family=Roboto:900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,400');
 
 html,
 body {
-  background-color: lightslategray;
   margin: 0;
 }
 
-main {
-  background-color: white;
-  border-radius: 1rem;
-  width: 300px;
-  height: 420px;
+hr {
+  width: 50px;
+  border: 0.5px solid;
 }
 
 .container {
@@ -21,13 +19,66 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: lightslategray;
+  background-color: white;
 }
 
-.big-text {
+.icon {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.info--location {
   font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.small-text {
-  font-family: 'Lato', sans-serif;
+.info--divider {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
+
+.info--divider, .info--forecast {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.weather {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  line-height: 1;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather--temp, .weather--scale {
+  font-size: 10rem;
+  font-weight: 100;
+}
+
+.weather--scale-btn {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.weather-settings {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
