@@ -1,29 +1,31 @@
 var fahrenheitOn = true;
 
 $(document).ready(function() {
+
   $('.container').hide();
+
   $(window).load(function() {
     init();
   });
 
+  // convert to celcius
   $('#celcius').on('click', function() {
     $('#celcius').prop('disabled', true);
     $('#fahrenheit').prop('disabled', false);
     $('.weather--scale').html('&#176;C');
 
-    // convert to celcius
     fahrenheitOn = false;
     convertForecast();
     var celcius = convertToCelcius($('.weather--temp').html());
     $('.weather--temp').html(celcius);
   });
 
+  // convert to fahrenheit
   $('#fahrenheit').on('click', function() {
     $('#celcius').prop('disabled', false);
     $('#fahrenheit').prop('disabled', true);
     $('.weather--scale').html('&#176;F');
 
-    // convert to fahrenheit
     fahrenheitOn = true;
     convertForecast();
     var fahrenheit = concertToFahrenheit($('.weather--temp').html());
@@ -33,13 +35,11 @@ $(document).ready(function() {
   function init() {
     var url = 'https://ipinfo.io/json/';
     $.getJSON(url, function(location) {
-      console.log(location);
       var api = 'https://api.darksky.net/forecast';
       var key = '/f6fb2742ee4dea6f56907406ea3149ee/';
 
       // display location
       var city = location.city;
-
       $('.info--location').html(city);
 
       getWeather(api + key + location.loc);
@@ -53,7 +53,6 @@ $(document).ready(function() {
       url: url,
       dataType: 'jsonp',
       success: function(weather) {
-        console.log(weather);
         // display weather
         var currentTemp = parseInt(weather.currently.apparentTemperature);
         var summary = weather.currently.summary;
