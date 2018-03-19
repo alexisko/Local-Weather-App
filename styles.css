@@ -30,6 +30,21 @@ footer {
   background-color: white;
 }
 
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+
+.fade-right {
+  animation-name: rightFadeInOut;
+  animation-duration: 1s;
+}
+
+.fade-up {
+  animation-name: upFadeInOut;
+  animation-duration: 1s;
+}
+
 .forecast {
   display: flex;
 }
@@ -94,6 +109,11 @@ footer {
   height: 100vh;
 }
 
+.loading > span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+}
+
 .weather {
   font-family: 'Roboto', sans-serif;
   display: flex;
@@ -122,5 +142,35 @@ footer {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
+}
+
+/*CSS ANIMATIONS*/
+@keyframes rightFadeInOut {
+  0% {
+    transform: translate(15%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes upFadeInOut {
+  0% {
+    transform: translate(0%, 15%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
