@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchCurrentLocation } from '../../actions/locations';
 
+import WeatherAppComponent from '../../components/WeatherApp';
+
 const mapStateToProps = state => {
   return {
     location: state.locations.location
@@ -22,9 +24,10 @@ class WeatherApp extends Component {
     const { location } = this.props;
     return (
       <React.Fragment>
-        <h1>Weather App</h1>
+        {/* <h1>Weather App</h1>
         {location}<br />
-        <button onClick={this.props.fetchCurrentLocation}>Click</button>
+        <button onClick={this.props.fetchCurrentLocation}>Click</button> */}
+        <WeatherAppComponent />
       </React.Fragment>
     );
   }
