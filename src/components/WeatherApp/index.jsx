@@ -10,8 +10,8 @@ class WeatherAppComponent extends Component {
     return (
       <div className="weather-container">
         <SearchBar />
-        <ThreeDay />
         <Weather />
+        <ThreeDay />
       </div>
     );
   }
