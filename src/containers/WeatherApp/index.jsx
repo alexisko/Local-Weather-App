@@ -20,13 +20,14 @@ const mapDispatchToProps = dispatch => {
 };
 
 class WeatherApp extends Component {
+  componentDidMount() {
+    this.props.fetchCurrentLocation();
+  }
+
   render() {
     const { location } = this.props;
     return (
       <React.Fragment>
-        {/* <h1>Weather App</h1>
-        {location}<br />
-        <button onClick={this.props.fetchCurrentLocation}>Click</button> */}
         <WeatherAppComponent />
       </React.Fragment>
     );
